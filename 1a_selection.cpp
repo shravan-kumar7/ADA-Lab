@@ -26,7 +26,7 @@ int main()
 {   
     clock_t start, end;
  
-    start = clock();
+    
     srand(time(0));  
 	int arr[5];
     for(int i=0;i<5;i++)
@@ -41,9 +41,9 @@ int main()
     cout<<endl;
 	int n = sizeof(arr) / sizeof(arr[0]);
 
-    
+    	start = clock();
  	sort(arr, n);
-
+	end = clock();
     
 
 	cout << "Sorted array: ";
@@ -53,7 +53,7 @@ int main()
 	}
     cout<<endl;
 
-    end = clock();
+    
  
     double time_taken = double(end - start) / double(CLOCKS_PER_SEC);
     cout << "Time taken by program is : "  <<fixed<<time_taken;
