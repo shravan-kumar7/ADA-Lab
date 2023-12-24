@@ -2,45 +2,32 @@
 #include<ctime>
 using namespace std;
 
-int partition(int arr[], int start, int end)
+int partition(int arr[], int low, int high)
 {
-
-	int pivot = arr[start];
-
-	int count = 0;
-	for (int i = start + 1; i <= end; i++) {
-		if (arr[i] <= pivot)
-			count++;
-	}
-
-	// Giving pivot element its correct position
-	int pivotIndex = start + count;
-	swap(arr[pivotIndex], arr[start]);
-
-	// Sorting left and right parts of the pivot element
-	int i = start, j = end;
-
-	while (i < pivotIndex && j > pivotIndex) {
-
-		while (arr[i] <= pivot) i++;
-
-		while (arr[j] > pivot) j--;
-
-		if (i < pivotIndex && j > pivotIndex) {
-			swap(arr[i++], arr[j--]);
-		}
-	}
-
-	return pivotIndex;
+    int pivot=arr[high];
+    int i=low-1;
+    for (int j=low;j<high;j++)
+    {
+        if(arr[j]<pivot)
+        {
+            i++;
+            swap(arr[i],arr[j]);
+        }
+    }
+    i++;
+    int temp=arr[i];
+    arr[i]=pivot;
+    arr[high]=temp;
+    return i;
 }
 
 
-void quickSort(int arr[],int start,int end){
-	if(start>=end)
+void quickSort(int arr[],int low,int high){
+	if(low>=high)
         return;
-    int p = partition(arr,start,end);
-    quickSort(arr,start,p-1);
-    quickSort(arr,p+1,end);
+    int pidx = partition(arr,low,high);
+    quickSort(arr,low,pidx-1);
+    quickSort(arr,pidx+1,high);
 	
 }
 		
