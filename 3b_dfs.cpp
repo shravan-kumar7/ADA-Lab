@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 using namespace std;
 
 int n, a[10][10], i, j, v[10], count = 0;
