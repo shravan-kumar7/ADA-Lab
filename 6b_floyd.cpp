@@ -1,5 +1,6 @@
 #include<iostream>
 #include<climits>
+#include <ctime>
 using namespace std;
 
 int min(int a, int b) {
