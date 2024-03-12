@@ -14,25 +14,17 @@ void warshall(int p[10][10], int n) {
 }
 
 int main() {
-    int p[10][10] = {0}, n, e, u, v, i, j;
+    int p[10][10], n, i, j;
 
     cout << "\nEnter the number of vertices: ";
     cin >> n;
-    cout << "\nEnter the number of edges: ";
-    cin >> e;
+    cout << "\nEnter the adjacency matrix: \n";
 
-    for (i = 1; i <= e; i++) {
-        cout << "\nEnter the end vertices of edge " << i << ": ";
-        cin >> u >> v;
-        p[u][v] = 1;
-    }
-
-    cout << "\nMatrix of input data: \n";
-    for (i = 1; i <= n; i++) {
+    for (i = 1; i <= n; i++) 
         for (j = 1; j <= n; j++)
-            cout << p[i][j] << "\t";
-        cout << "\n";
-    }
+            cin>> p[i][j] ;
+    
+
     clock_t start = clock();
   
     warshall(p, n);
